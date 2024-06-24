@@ -1,14 +1,11 @@
+<app-header></app-header>
+<div class="main">
+    <app-menu></app-menu>
+    <main>
+        <router-outlet></router-outlet>
+    </main>
+</div>
+<app-footer></app-footer>
 
-
-<!-- <app-duree></app-duree> -->
-
-<!-- <app-hello 
-    *ngFor="let item of personnes"
-    [nom]="item.nom"
-    [dateDeNaissance]="item.dateN"
-></app-hello> -->
-@for (item of personnes; track item.id) {
-    <app-hello [nom]="item.nom" [dateDeNaissance]="item.dateN"></app-hello>
-}
-
-<button (click)="onClick()">Click me</button>
+<p-confirmDialog />
+<p-toast />
