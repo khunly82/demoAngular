@@ -1,0 +1,19 @@
+@keyframes appearing {
+    0% { transform: translateX(-100px); }
+    100% { transform: translateX(0); }
+}
+
+:host {
+    border: 1px solid black;
+    display: block;
+    margin: 20px;
+    padding: 20px;
+    animation-name: appearing;
+    animation-duration: 1s;
+}
+h1 {
+    color: hotpink;
+}
+p {
+    color: green;
+}

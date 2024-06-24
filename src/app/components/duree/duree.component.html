@@ -1,0 +1,17 @@
+<input [disabled]="totalesSecondes == 0" 
+       [(ngModel)]="totalesSecondes" type="number">
+<!-- <p *ngIf="totalesSecondes > 0;else myTemplate">Durée : {{afficherDuree()}}</p>
+
+<ng-template #myTemplate>
+    <p>La valeur ne peut pas être négative</p>
+</ng-template> -->
+
+@if(totalesSecondes > 0) {
+    <p [ngClass]="{ 
+        red: totalesSecondes > 86400, 
+        green: totalesSecondes < 3600 
+    }">Durée : {{afficherDuree()}}</p>
+}
+@else {
+    <p>La valeur ne peut pas être négative</p>
+}
