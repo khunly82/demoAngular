@@ -12,6 +12,8 @@ export class HelloComponent {
   @Input()
   dateDeNaissance: string = '1982-05-06T12:30:25';
 
+  euro: number = 42.5
+
   nomPlusCoeurs(){
     return  '♥' + this.nom + '♥'
   }

@@ -43,7 +43,12 @@
                 </td>
                 <td>
                     <p-button (onClick)="remove(item)" size="small" severity="danger">&times;</p-button>
-                    <p-button (onClick)="check(item)" size="small" severity="success" icon="pi pi-check"></p-button>
+                    <p-button 
+                        *ngIf="item.quantity > 0" 
+                        (onClick)="check(item)" 
+                        size="small" 
+                        severity="success" 
+                        icon="pi pi-check"></p-button>
                 </td>
             </tr>
         </ng-template>

@@ -22,6 +22,8 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { MenuComponent } from './layout/menu/menu.component';
 import { Page404Component } from './pages/404/404.component';
 import { StepperComponent } from './components/stepper/stepper.component';
+import { ToDollarPipe } from './pipes/to-dollar.pipe';
+import { ConversionPipe } from './pipes/conversion.pipe';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { StepperComponent } from './components/stepper/stepper.component';
     MenuComponent,
     Page404Component,
     StepperComponent,
+    ToDollarPipe,
+    ConversionPipe,
   ],
   imports: [
     BrowserModule,
