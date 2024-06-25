@@ -20,6 +20,7 @@ import { ToastModule } from 'primeng/toast';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { MenuComponent } from './layout/menu/menu.component';
+import { Page404Component } from './pages/404/404.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { MenuComponent } from './layout/menu/menu.component';
     HeaderComponent,
     FooterComponent,
     MenuComponent,
+    Page404Component,
   ],
   imports: [
     BrowserModule,

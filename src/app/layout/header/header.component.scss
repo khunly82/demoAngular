@@ -1,7 +1,36 @@
 header {
     height: 70px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     box-shadow: 2px 0px 10px 10px #ccc;
+    padding: 20px;
+}
+.menu-button { position: relative; }
+.menu-button > div {
+    height: 6px;
+    width: 30px;
+    background-color: black;
+    position: absolute;
+    transition: transform 0.3s linear;
+}
+
+.menu-button > div:first-child {
+    transform: translateY(-12px);
+}
+
+.menu-button > div:last-child {
+    transform: translateY(12px);
+}
+
+.menu-button.close > div:first-child {
+    transform: rotate(45deg)
+}
+
+.menu-button.close > div:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-button.close > div:last-child {
+    transform: rotate(-45deg);
 }

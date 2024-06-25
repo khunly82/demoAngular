@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Signal, output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+  menuOpen: boolean = false;
+  onMenu = output<boolean>(); 
 
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+    this.onMenu.emit(this.menuOpen);
+  }
 }

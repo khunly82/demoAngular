@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +13,8 @@ export class AppComponent {
     { id: 4, nom: 'Samuel', dateN: '2000-01-01' },
   ];
 
+  menuOpen: boolean = false;
+
   constructor() {
     // setTimeout(() => {
     //   this.personnes = [
@@ -24,7 +26,8 @@ export class AppComponent {
     // }, 5000)
   }
 
-  onClick() {
-    this.personnes.push({ id: 42, nom: 'Simon', dateN: '2023-02-02' })
-  }
+  // onClick() {
+  //   this.personnes.push({ id: 42, nom: 'Simon', dateN: '2023-02-02' })
+  // }
+
 }

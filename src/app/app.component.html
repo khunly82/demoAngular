@@ -1,6 +1,6 @@
-<app-header></app-header>
+<app-header (onMenu)="menuOpen = $event"></app-header>
 <div class="main">
-    <app-menu></app-menu>
+    <app-menu *ngIf="menuOpen"></app-menu>
     <main>
         <router-outlet></router-outlet>
     </main>
