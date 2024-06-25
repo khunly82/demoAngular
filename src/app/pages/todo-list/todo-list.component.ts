@@ -9,6 +9,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 export class TodoListComponent {
   taskName: string = '';
   taskUrgent: boolean = false;
+  taskQty: number = 1;
 
   tasks: Array<any> = [];
 
@@ -18,10 +19,15 @@ export class TodoListComponent {
   ) {}
 
   addTask() {
-    const newTask = { name: this.taskName, urgent: this.taskUrgent };
+    const newTask = { 
+      name: this.taskName, 
+      urgent: this.taskUrgent,
+      quantity: this.taskQty,
+    };
     this.tasks.push(newTask);
     this.taskName = '';
     this.taskUrgent = false;
+    this.taskQty = 1;
   }
 
   remove(task: any) {

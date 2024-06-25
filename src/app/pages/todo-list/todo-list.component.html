@@ -7,6 +7,9 @@
         <p-button [disabled]="!taskName" (onClick)="addTask()" severity="success">+</p-button>
     </div>
     <div class="flex">
+        <app-stepper [(value)]="taskQty"></app-stepper>
+    </div>
+    <div class="flex">
         <p-inputSwitch [(ngModel)]="taskUrgent"></p-inputSwitch>
         <label>Urgent ?</label>
     </div>
@@ -17,6 +20,7 @@
         <ng-template pTemplate="header">
             <tr>
                 <th>Nom</th>
+                <th>Quantité</th>
                 <th>Urgent</th>
                 <th>Actions</th>
             </tr>
@@ -24,6 +28,7 @@
         <ng-template pTemplate="body" let-item>
             <tr>
                 <td>{{item.name}}</td>
+                <td>{{item.quantity}}</td>
                 <td>
                     @if(item.urgent) {
                         &times;
