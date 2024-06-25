@@ -1,0 +1,41 @@
+<p-card>
+    <div class="flex">
+        <p-floatLabel>
+            <input [(ngModel)]="taskName" pInputText>
+            <label>Nom de la tâche</label>
+        </p-floatLabel>
+        <p-button [disabled]="!taskName" (onClick)="addTask()" severity="success">+</p-button>
+    </div>
+    <div class="flex">
+        <p-inputSwitch [(ngModel)]="taskUrgent"></p-inputSwitch>
+        <label>Urgent ?</label>
+    </div>
+</p-card>
+
+<div style="margin-top: 20px;">
+    <p-table [value]="tasks">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Nom</th>
+                <th>Urgent</th>
+                <th>Actions</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-item>
+            <tr>
+                <td>{{item.name}}</td>
+                <td>
+                    @if(item.urgent) {
+                        &times;
+                    }
+                </td>
+                <td>
+                    <p-button (onClick)="remove(item)" size="small" severity="danger">&times;</p-button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+            <!-- @for (item of tasks; track $index) {
+                <li [ngClass]="{ red: item.urgent }">{{item.name}}</li>
+            } -->
+</div>
