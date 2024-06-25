@@ -6,7 +6,15 @@ header {
     box-shadow: 2px 0px 10px 10px #ccc;
     padding: 20px;
 }
-.menu-button { position: relative; }
+.menu-button { 
+    position: relative; 
+    height: 30px; 
+    width: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+}
 .menu-button > div {
     height: 6px;
     width: 30px;
