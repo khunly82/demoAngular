@@ -9,6 +9,7 @@ export class StepperComponent {
   
   @Input()
   value: number = 1;
+  
   valueChange = output<number>();
 
   incrementer() {

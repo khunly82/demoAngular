@@ -38,7 +38,7 @@ export class TodoListComponent {
         this.tasks = this.tasks.filter(t => t !== task);
         this.messageService.add({
           severity: 'success',
-          summary: 'Suppression confirmée'
+          summary: 'Suppression confirmée',
         })
       },
       reject: () => {
@@ -48,5 +48,12 @@ export class TodoListComponent {
         })
       }
     });
+  }
+
+  check(item: any) {
+    if(item.quantity <= 0) {
+      return;
+    }
+    item.quantity--;
   }
 }
