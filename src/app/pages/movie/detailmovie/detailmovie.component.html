@@ -1,0 +1,15 @@
+
+  <p-card>
+    <ng-template pTemplate="header">
+      <h2>{{currentMovie.titre}}</h2>
+    </ng-template>
+    <ng-template pTemplate="body">
+      <p>Date de sortie : {{currentMovie.dateDeSortie | date : 'dd-MM-yyyy'}}</p>
+      <p>{{currentMovie.synopsis}}</p>
+      <ul>
+        <li *ngFor="let a of currentMovie.casting">
+          {{a}}
+        </li>
+      </ul>
+    </ng-template>
+  </p-card>

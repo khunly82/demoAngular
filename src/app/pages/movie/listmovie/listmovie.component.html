@@ -1,0 +1,22 @@
+<div class="content">
+  <div style="min-width: 30%;">
+    <p-table [value]="listMovie">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Titre</th>
+          <th>Actions</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-movie>
+        <tr>
+          <td>{{movie.titre}}</td>
+          <td><p-button size="small" severity="info" [rounded]="true" (click)="selectMovie(movie)">Détails</p-button></td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+  <div>
+    <app-createmovie (newMovieAdd)="getNewMovieFromForm($event)"></app-createmovie>
+  </div>
+  <div><app-detailmovie [currentMovie]="selectedMovie" *ngIf="selectedMovie"></app-detailmovie></div>
+</div>

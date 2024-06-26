@@ -1,0 +1,44 @@
+<p-card>
+  <ng-template pTemplate="header">
+    <h2>Création d'un movie</h2>
+  </ng-template>
+  <ng-template pTemplate="body" >
+    <form [formGroup]="fg" (ngSubmit)="validateForm()" class="form" style="background-color: chartreuse; color : deeppink;">
+
+      <p-floatLabel>
+        <input formControlName="titre" pInputText>
+        <label>Titre</label>
+        @if(fg.controls["titre"].invalid && fg.controls["titre"].touched) {
+          <span style="color: red;"> Titre requis</span>
+        }
+      </p-floatLabel>
+
+      <p-floatLabel>
+        <textarea formControlName="synopsis" pInputTextarea></textarea>
+        <label>Résumé du film</label>
+        @if(fg.controls["synopsis"].invalid) {
+          <span style="color: red;"> Trop court</span>
+        }
+      </p-floatLabel>
+
+      <p-floatLabel>
+        <p-calendar formControlName="dateDeSortie"></p-calendar>
+        <label>Date de sortie</label>
+        @if(fg.controls["dateDeSortie"].invalid && fg.controls["dateDeSortie"].errors) {
+          <span style="color: red;"> {{fg.controls["dateDeSortie"].errors["myerror"]}}</span>
+        }
+      </p-floatLabel>
+
+      <fieldset formArrayName="casting" class="form">
+        <legend><span>Casting <p-button size="small" type="button" (click)="addCastingRow()" severity="help">+</p-button></span></legend>
+        <p-floatLabel *ngFor="let control of getCasting().controls; let i = index;">
+          <input [formControlName]="i" pInputText>
+          <label>Acteur {{i+1}}</label>
+        </p-floatLabel>
+      </fieldset>
+
+
+      <p-button type="submit" severity="success" [disabled]="fg.invalid">Valider</p-button>
+    </form>
+  </ng-template>
+</p-card>

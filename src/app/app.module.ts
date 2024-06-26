@@ -27,6 +27,11 @@ import { ConversionPipe } from './pipes/conversion.pipe';
 import { DropdownModule } from 'primeng/dropdown';
 import { SlicePipe } from './pipes/slice.pipe';
 import { FormdemoComponent } from './pages/formdemo/formdemo.component';
+import { ListmovieComponent } from './pages/movie/listmovie/listmovie.component';
+import { DetailmovieComponent } from './pages/movie/detailmovie/detailmovie.component';
+import { CreatemovieComponent } from './pages/movie/createmovie/createmovie.component';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { CalendarModule } from 'primeng/calendar';
 
 @NgModule({
   declarations: [
@@ -42,7 +47,10 @@ import { FormdemoComponent } from './pages/formdemo/formdemo.component';
     ToDollarPipe,
     ConversionPipe,
     SlicePipe,
-    FormdemoComponent
+    FormdemoComponent,
+    ListmovieComponent,
+    DetailmovieComponent,
+    CreatemovieComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +68,9 @@ import { FormdemoComponent } from './pages/formdemo/formdemo.component';
     TableModule,
     ConfirmDialogModule,
     ToastModule,
-    DropdownModule
+    DropdownModule,
+    InputTextareaModule,
+    CalendarModule
   ],
   providers: [
     ConfirmationService,
