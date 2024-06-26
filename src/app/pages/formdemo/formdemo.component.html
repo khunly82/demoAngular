@@ -1,0 +1,46 @@
+<p-card>
+  <ng-template pTemplate="header">
+    <h3>Mon Super formulaire</h3>
+  </ng-template>
+  <ng-template pTemplate="body">
+    <form [formGroup]="fg" (ngSubmit)="validateForm()" class="form">
+
+        <p-floatLabel>
+          <input formControlName="nom" pInputText>
+          <label>Votre nom</label>
+          @if(fg.controls["nom"].invalid) {
+            <span style="color: red;"> Nom requis</span>
+          }
+        </p-floatLabel>
+
+
+        <p-floatLabel>
+          <input formControlName="prenom" pInputText>
+          <label>Votre prénom</label>
+          @if(fg.controls["prenom"].invalid && fg.controls["prenom"].errors) {
+            <span style="color: red;"> {{fg.controls["prenom"].errors["myerror"]}}</span>
+          }
+        </p-floatLabel>
+
+        <p-floatLabel>
+          <input formControlName="email" type="email" pInputText>
+          <label>Votre adresse mail</label>
+          @if(fg.controls["email"].invalid && fg.controls["email"].touched) {
+            <span style="color: red;"> Doit correspondre au format xx&#64;xx.xx</span>
+          }
+        </p-floatLabel>
+
+
+        <fieldset formArrayName="tel" class="form">
+          <legend>Téléphone <p-button size="small" type="button" (click)="addTel()">+</p-button></legend>
+          <p-floatLabel *ngFor="let control of getFormArray().controls; let i = index;">
+            <input [formControlName]="i" type="phone" pInputText>
+            <label>Téléphone {{i+1}}</label>
+          </p-floatLabel>
+        </fieldset>
+
+
+        <p-button type="submit" severity="success" [disabled]="fg.invalid">Valider</p-button>
+    </form>
+  </ng-template>
+</p-card>

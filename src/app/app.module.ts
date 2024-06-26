@@ -26,6 +26,7 @@ import { ToDollarPipe } from './pipes/to-dollar.pipe';
 import { ConversionPipe } from './pipes/conversion.pipe';
 import { DropdownModule } from 'primeng/dropdown';
 import { SlicePipe } from './pipes/slice.pipe';
+import { FormdemoComponent } from './pages/formdemo/formdemo.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { SlicePipe } from './pipes/slice.pipe';
     StepperComponent,
     ToDollarPipe,
     ConversionPipe,
-    SlicePipe
+    SlicePipe,
+    FormdemoComponent
   ],
   imports: [
     BrowserModule,
