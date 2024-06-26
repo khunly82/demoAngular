@@ -32,6 +32,7 @@ import { DetailmovieComponent } from './pages/movie/detailmovie/detailmovie.comp
 import { CreatemovieComponent } from './pages/movie/createmovie/createmovie.component';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { CalendarModule } from 'primeng/calendar';
+import { FieldsetModule } from 'primeng/fieldset';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { CalendarModule } from 'primeng/calendar';
     ToastModule,
     DropdownModule,
     InputTextareaModule,
-    CalendarModule
+    CalendarModule,
+    FieldsetModule
   ],
   providers: [
     ConfirmationService,

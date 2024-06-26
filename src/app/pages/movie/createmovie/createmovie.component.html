@@ -3,7 +3,7 @@
     <h2>Création d'un movie</h2>
   </ng-template>
   <ng-template pTemplate="body" >
-    <form [formGroup]="fg" (ngSubmit)="validateForm()" class="form" style="background-color: chartreuse; color : deeppink;">
+    <form [formGroup]="fg" (ngSubmit)="validateForm()" class="form">
 
       <p-floatLabel>
         <input formControlName="titre" pInputText>
@@ -29,13 +29,19 @@
         }
       </p-floatLabel>
 
-      <fieldset formArrayName="casting" class="form">
-        <legend><span>Casting <p-button size="small" type="button" (click)="addCastingRow()" severity="help">+</p-button></span></legend>
+      <p-fieldset formArrayName="casting" >
+        <ng-template pTemplate="header">
+          <span>Casting &nbsp;
+          <p-button size="small" type="button" (click)="addCastingRow()" severity="help">+</p-button>
+        </span>
+        </ng-template>
+       <div class="form">
         <p-floatLabel *ngFor="let control of getCasting().controls; let i = index;">
           <input [formControlName]="i" pInputText>
           <label>Acteur {{i+1}}</label>
         </p-floatLabel>
-      </fieldset>
+      </div>
+      </p-fieldset>
 
 
       <p-button type="submit" severity="success" [disabled]="fg.invalid">Valider</p-button>
