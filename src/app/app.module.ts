@@ -24,6 +24,8 @@ import { Page404Component } from './pages/404/404.component';
 import { StepperComponent } from './components/stepper/stepper.component';
 import { ToDollarPipe } from './pipes/to-dollar.pipe';
 import { ConversionPipe } from './pipes/conversion.pipe';
+import { DropdownModule } from 'primeng/dropdown';
+import { SlicePipe } from './pipes/slice.pipe';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,7 @@ import { ConversionPipe } from './pipes/conversion.pipe';
     StepperComponent,
     ToDollarPipe,
     ConversionPipe,
+    SlicePipe
   ],
   imports: [
     BrowserModule,
@@ -55,6 +58,7 @@ import { ConversionPipe } from './pipes/conversion.pipe';
     TableModule,
     ConfirmDialogModule,
     ToastModule,
+    DropdownModule
   ],
   providers: [
     ConfirmationService,

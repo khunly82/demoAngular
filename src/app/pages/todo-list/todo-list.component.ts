@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
@@ -13,14 +13,17 @@ export class TodoListComponent {
 
   tasks: Array<any> = [];
 
+  nbView : number = 0
+  listView : number[] = [5, 10, 15, 20]
+
   constructor(
     private confirmationService: ConfirmationService,
     private messageService: MessageService,
   ) {}
 
   addTask() {
-    const newTask = { 
-      name: this.taskName, 
+    const newTask = {
+      name: this.taskName,
       urgent: this.taskUrgent,
       quantity: this.taskQty,
     };

@@ -14,9 +14,15 @@
         <label>Urgent ?</label>
     </div>
 </p-card>
+<div>
+  <p-dropdown [options]="listView" [(ngModel)]="nbView"></p-dropdown>
+</div>
+<ul>
+  <li *ngFor="let t of tasks | slice : nbView">{{t.name}}</li>
+</ul>
 
 <div style="margin-top: 20px;">
-    <p-table [value]="tasks">
+    <p-table [value]="tasks | slice : nbView">
         <ng-template pTemplate="header">
             <tr>
                 <th>Nom</th>
@@ -32,7 +38,7 @@
                     @if(item.quantity > 0) {
                         {{item.quantity}}
                     } @else {
-                        <i [ngStyle]="{ color: 'green' }" 
+                        <i [ngStyle]="{ color: 'green' }"
                            class="pi pi-check"></i>
                     }
                 </td>
@@ -43,11 +49,11 @@
                 </td>
                 <td>
                     <p-button (onClick)="remove(item)" size="small" severity="danger">&times;</p-button>
-                    <p-button 
-                        *ngIf="item.quantity > 0" 
-                        (onClick)="check(item)" 
-                        size="small" 
-                        severity="success" 
+                    <p-button
+                        *ngIf="item.quantity > 0"
+                        (onClick)="check(item)"
+                        size="small"
+                        severity="success"
                         icon="pi pi-check"></p-button>
                 </td>
             </tr>
