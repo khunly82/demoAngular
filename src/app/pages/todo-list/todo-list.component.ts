@@ -1,5 +1,7 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { Itask } from '../../models/itask';
+import { TodoService } from '../../services/todo.service';
 
 @Component({
   selector: 'app-todo-list',
@@ -11,7 +13,7 @@ export class TodoListComponent {
   taskUrgent: boolean = false;
   taskQty: number = 1;
 
-  tasks: Array<any> = [];
+  tasks: Array<Itask>;
 
   nbView : number = 0
   listView : number[] = [5, 10, 15, 20]
@@ -19,30 +21,49 @@ export class TodoListComponent {
   constructor(
     private confirmationService: ConfirmationService,
     private messageService: MessageService,
-  ) {}
+    private _todoService : TodoService
+  ) {
+    this.tasks = this._todoService.tasks;
+  }
 
   addTask() {
-    const newTask = {
-      name: this.taskName,
+    const newTask : Itask = {
+      name: this.taskName.trim(),
       urgent: this.taskUrgent,
       quantity: this.taskQty,
     };
-    this.tasks.push(newTask);
+    try {
+      this.tasks = this._todoService.addTask(newTask);
+    } catch (error : any) {
+      this.messageService.add({
+        severity: 'error',
+        summary: error.message,
+      })
+    }
     this.taskName = '';
     this.taskUrgent = false;
     this.taskQty = 1;
   }
 
-  remove(task: any) {
+  remove(task: Itask) {
     this.confirmationService.confirm({
       header: 'Êtes-vous sûr de vouloir supprimer cet élément?',
       accept: () => {
         // this.tasks.splice(this.tasks.indexOf(task), 1);
-        this.tasks = this.tasks.filter(t => t !== task);
-        this.messageService.add({
-          severity: 'success',
-          summary: 'Suppression confirmée',
-        })
+        try{
+          this.tasks = this._todoService.removeTask(task.name);
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Suppression confirmée',
+          })
+        }
+        catch(error : any){
+          this.messageService.add({
+            severity: 'error',
+            summary: error.message,
+          })
+        }
+        
       },
       reject: () => {
         this.messageService.add({
@@ -53,10 +74,15 @@ export class TodoListComponent {
     });
   }
 
-  check(item: any) {
-    if(item.quantity <= 0) {
-      return;
+  check(item: Itask) {
+    try {
+      this._todoService.decreaseQuantity(item.name, 1);
+      this.tasks = this._todoService.tasks;
+    } catch(error : any){
+      this.messageService.add({
+        severity: 'error',
+        summary: error.message,
+      })
     }
-    item.quantity--;
   }
 }
