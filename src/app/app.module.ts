@@ -33,6 +33,9 @@ import { CreatemovieComponent } from './pages/movie/createmovie/createmovie.comp
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { CalendarModule } from 'primeng/calendar';
 import { FieldsetModule } from 'primeng/fieldset';
+import { CalendarComponent } from './pages/calendar/calendar.component';
+import { CalendarSelectorComponent } from './pages/calendar/calendar-selector/calendar-selector.component';
+import { CalendarViewComponent } from './pages/calendar/calendar-view/calendar-view.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +54,10 @@ import { FieldsetModule } from 'primeng/fieldset';
     FormdemoComponent,
     ListmovieComponent,
     DetailmovieComponent,
-    CreatemovieComponent
+    CreatemovieComponent,
+    CalendarComponent,
+    CalendarSelectorComponent,
+    CalendarViewComponent
   ],
   imports: [
     BrowserModule,
