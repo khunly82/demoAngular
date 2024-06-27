@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CalendarService } from '../../../services/calendar.service';
 
 @Component({
   selector: 'app-calendar-selector',
@@ -26,21 +27,15 @@ export class CalendarSelectorComponent {
       return this._monthNames[this._month];
   }
 
-  constructor(){
-    this._month = new Date().getMonth();
+  constructor(private _calendarService : CalendarService){
+    this._month = this._calendarService.month;
   }
 
   public nextMonth(){
-    this._month++;
-    // if(this._month>=12) this._month = this._month % 12;
-    this._month %= 12;
+    this._month = this._calendarService.nextMonth();
   }
 
   public previousMonth(){
-    this._month--;
-    while(this._month < 0){
-      this._month +=12;
-    }
-    this._month %= 12;
+    this._month = this._calendarService.previousMonth();
   }
 }

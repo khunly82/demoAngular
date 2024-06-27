@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CalendarService } from '../../../services/calendar.service';
 
 @Component({
   selector: 'app-calendar-view',
@@ -9,8 +10,8 @@ export class CalendarViewComponent implements OnInit {
 
   private _month : number;
 
-  constructor(){
-    this._month = new Date().getMonth();
+  constructor(private _calendarService : CalendarService){
+    this._month = this._calendarService.month;
   }
 
   ngOnInit(): void {
@@ -19,6 +20,7 @@ export class CalendarViewComponent implements OnInit {
 
   public getCalendarMonth(){
     const tbody = document.querySelector('#calendar');
+    if(tbody) tbody.innerHTML = "";
     const year = new Date().getFullYear();
     let firstDay = new Date(year,this._month, 1).getDay();
     let numberDays : number;
@@ -67,4 +69,10 @@ export class CalendarViewComponent implements OnInit {
       cell++;
     }
   }
+
+  public refresh() : void{
+    this._month = this._calendarService.month;
+    this.getCalendarMonth();
+  }
+
 }
