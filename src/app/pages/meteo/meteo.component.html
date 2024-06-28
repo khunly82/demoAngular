@@ -1,0 +1,24 @@
+@if(donneeMeteo()) {
+    <p>Location: {{donneeMeteo().name}}</p>
+    <p>{{ donneeMeteo().main.temp }}°C</p>
+    <img [src]="'https://openweathermap.org/img/wn/' + donneeMeteo().weather[0].icon + '@2x.png'">
+    <div [ngStyle]="{
+        position: 'relative',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+    }">
+        <img src="https://cdn-icons-png.flaticon.com/512/49/49701.png"
+        [ngStyle]="{ 
+           height: '200px'
+        }">
+   <img [ngStyle]="{
+       transform: 'rotate(' + donneeMeteo().wind.deg + 'deg)',
+       height: '50px',
+       position: 'absolute'
+   }" 
+        src="https://www.impressions-languedoc.eu/931-thickbox_default/fleche-haut.jpg">
+    </div>
+    
+}
+

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Inject, Input, inject } from '@angular/core';
 
 @Component({
   selector: 'app-duree',
@@ -8,6 +8,10 @@ import { Component, Input } from '@angular/core';
 export class DureeComponent {
   @Input()
   totalesSecondes: number = 3788;
+
+  constructor(@Inject('myValue') variable: number) {
+    console.log(variable)
+  }
 
   afficherDuree() {
     let heures = Math.floor(this.totalesSecondes / 3600).toString().padStart(2, '0');

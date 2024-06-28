@@ -36,6 +36,8 @@ import { FieldsetModule } from 'primeng/fieldset';
 import { CalendarComponent } from './pages/calendar/calendar.component';
 import { CalendarSelectorComponent } from './pages/calendar/calendar-selector/calendar-selector.component';
 import { CalendarViewComponent } from './pages/calendar/calendar-view/calendar-view.component';
+import { MeteoComponent } from './pages/meteo/meteo.component';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,8 @@ import { CalendarViewComponent } from './pages/calendar/calendar-view/calendar-v
     CreatemovieComponent,
     CalendarComponent,
     CalendarSelectorComponent,
-    CalendarViewComponent
+    CalendarViewComponent,
+    MeteoComponent
   ],
   imports: [
     BrowserModule,
@@ -78,11 +81,13 @@ import { CalendarViewComponent } from './pages/calendar/calendar-view/calendar-v
     DropdownModule,
     InputTextareaModule,
     CalendarModule,
-    FieldsetModule
+    FieldsetModule,
   ],
   providers: [
     ConfirmationService,
     MessageService,
+    provideHttpClient(),
+    {provide: 'myValue', useValue: 42 }
   ],
   bootstrap: [AppComponent]
 })
