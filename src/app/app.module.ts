@@ -37,10 +37,13 @@ import { CalendarComponent } from './pages/calendar/calendar.component';
 import { CalendarSelectorComponent } from './pages/calendar/calendar-selector/calendar-selector.component';
 import { CalendarViewComponent } from './pages/calendar/calendar-view/calendar-view.component';
 import { MeteoComponent } from './pages/meteo/meteo.component';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { AgePipe } from './pipes/age.pipe';
 import { MarvelCharactersComponent } from './pages/marvel-characters/marvel-characters.component';
 import { PaginatorComponent } from './components/paginator/paginator.component';
+import { LoaderComponent } from './components/loader/loader.component';
+import { loaderInterceptor } from './interceptors/loader.interceptor';
+import { ProductComponent } from './pages/product/product.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +69,9 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
     MeteoComponent,
     AgePipe,
     MarvelCharactersComponent,
-    PaginatorComponent
+    PaginatorComponent,
+    LoaderComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
@@ -92,7 +97,9 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
   providers: [
     ConfirmationService,
     MessageService,
-    provideHttpClient(),
+    provideHttpClient(withInterceptors([
+      loaderInterceptor
+    ])),
     {provide: 'myValue', useValue: 42 }
   ],
   bootstrap: [AppComponent]

@@ -9,3 +9,6 @@
 
 <p-confirmDialog />
 <p-toast />
+@if(loaderService.isLoading()) {
+    <app-loader></app-loader>
+}

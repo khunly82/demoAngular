@@ -1,4 +1,5 @@
 import { Component, signal } from '@angular/core';
+import { LoaderService } from './services/loader.service';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,9 @@ export class AppComponent {
 
   menuOpen: boolean = false;
 
-  constructor() {
+  constructor(
+    public loaderService: LoaderService
+  ) {
     // setTimeout(() => {
     //   this.personnes = [
     //     { id: 5, nom: 'Henry', dateN: '1983-06-28' },

@@ -1,0 +1,6 @@
+@for (item of product(); track item.id) {
+    <p>{{item.name}}</p>
+    <p>{{item.price}}</p>
+    <p>{{item.category.name}}</p>
+    <p><button (click)="delete(item.id)">&times;</button></p>
+}

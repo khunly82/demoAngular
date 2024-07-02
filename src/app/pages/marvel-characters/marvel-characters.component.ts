@@ -16,14 +16,15 @@ export class MarvelCharactersComponent {
   characters: WritableSignal<any> = signal(null);
 
   constructor (private marvelCharactersService: MarvelCharactersService) {
-    // connection à l'api de marvel
-    this.marvelCharactersService.getDatas().subscribe(data => {
-      // modification du signal avec les données de Marvel
-      this.characters.set(data);
-    });
+    this.loadData();
   }
 
   changePage() {
+    this.loadData();
+  }
+
+  loadData() {
+    // connection à l'api de marvel
     this.marvelCharactersService.getDatas(this.page).subscribe(data => {
       // modification du signal avec les données de Marvel
       this.characters.set(data);
