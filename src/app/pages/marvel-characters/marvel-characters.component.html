@@ -1,5 +1,5 @@
 @if(characters()) {
-    @for (item of characters().data.results; track $index) {
+    @for (item of characters().data.results; track item.id) {
         <div>
             <img [src]="item.thumbnail.path + '.' + item.thumbnail.extension">
             {{ item.name }}
