@@ -1,0 +1,14 @@
+@if(characters()) {
+    @for (item of characters().data.results; track $index) {
+        <div>
+            <img [src]="item.thumbnail.path + '.' + item.thumbnail.extension">
+            {{ item.name }}
+        </div>
+    }
+
+    <app-paginator 
+        [(currentPage)]="page" 
+        [size]="20"
+        [total]="characters().data.total"
+        (currentPageChange)="changePage()"></app-paginator>
+}

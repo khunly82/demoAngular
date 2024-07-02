@@ -38,6 +38,9 @@ import { CalendarSelectorComponent } from './pages/calendar/calendar-selector/ca
 import { CalendarViewComponent } from './pages/calendar/calendar-view/calendar-view.component';
 import { MeteoComponent } from './pages/meteo/meteo.component';
 import { provideHttpClient } from '@angular/common/http';
+import { AgePipe } from './pipes/age.pipe';
+import { MarvelCharactersComponent } from './pages/marvel-characters/marvel-characters.component';
+import { PaginatorComponent } from './components/paginator/paginator.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +63,10 @@ import { provideHttpClient } from '@angular/common/http';
     CalendarComponent,
     CalendarSelectorComponent,
     CalendarViewComponent,
-    MeteoComponent
+    MeteoComponent,
+    AgePipe,
+    MarvelCharactersComponent,
+    PaginatorComponent
   ],
   imports: [
     BrowserModule,

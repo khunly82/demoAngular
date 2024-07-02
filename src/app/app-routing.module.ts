@@ -7,6 +7,7 @@ import { FormdemoComponent } from './pages/formdemo/formdemo.component';
 import { ListmovieComponent } from './pages/movie/listmovie/listmovie.component';
 import { CalendarComponent } from './pages/calendar/calendar.component';
 import { MeteoComponent } from './pages/meteo/meteo.component';
+import { MarvelCharactersComponent } from './pages/marvel-characters/marvel-characters.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'duree', pathMatch: 'full' },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'movie', component: ListmovieComponent },
   { path: 'calendar', component: CalendarComponent },
   { path: 'meteo', component: MeteoComponent },
+  { path: 'marvel/characters', component: MarvelCharactersComponent },
   { path: '**', component: Page404Component },
 ];
 

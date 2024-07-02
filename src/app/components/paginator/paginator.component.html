@@ -1,0 +1,6 @@
+@for (item of getPages(); track $index) {
+    <button [disabled]="item === currentPage" 
+            (click)="changePage(item)">
+        {{item}}
+    </button>
+}
