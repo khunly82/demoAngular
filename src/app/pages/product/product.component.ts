@@ -11,14 +11,17 @@ export class ProductComponent {
   product = signal<any[]>([]);
 
   constructor(private productService: ProductService) {
-    this.productService.getAll()
-      .subscribe(data => this.product.set(data))
+    this.loadData();
   }
 
   delete(id: number) {
     this.productService.remove(id).subscribe(() => {
-      this.productService.getAll()
-      .subscribe(data => this.product.set(data))
+      this.loadData()
     })
+  }
+
+  loadData() {
+    this.productService.getAll()
+      .subscribe(data => this.product.set(data))
   }
 }

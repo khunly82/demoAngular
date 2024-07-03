@@ -1,0 +1,29 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <p-fieldset legend="Nom">
+        <p-floatLabel>
+            <input pInputText formControlName="name">
+            <label>Nom du produit</label>
+        </p-floatLabel>
+    </p-fieldset>
+    <p-fieldset>
+        <p-floatLabel>
+            <input pInputTextarea formControlName="description">
+            <label>Description du produit</label>
+        </p-floatLabel>
+    </p-fieldset>
+    <p-fieldset>
+        <p-floatLabel>
+            <p-inputNumber formControlName="price"></p-inputNumber>
+            <label>Prix</label>
+        </p-floatLabel>
+    </p-fieldset>
+    <p-fieldset>
+        <p-floatLabel>
+            <input pInputText formControlName="categoryName">
+            <label>Catégorie</label>
+        </p-floatLabel>
+    </p-fieldset>
+    <p-fieldset>
+        <p-button type="submit" icon="pi pi-send" label="Envoyer"></p-button>
+    </p-fieldset>
+</form>

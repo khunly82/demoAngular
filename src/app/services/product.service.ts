@@ -11,10 +11,14 @@ export class ProductService {
   ) { }
 
   getAll() {
-    return this.httpClient.get<any[]>('http://localhost:3000/product')
+    return this.httpClient.get<any[]>('http://localhost:3000/product');
   }
 
   remove(id: number) {
-    return this.httpClient.delete('http://localhost:3000/product/' + id)
+    return this.httpClient.delete('http://localhost:3000/product/' + id);
+  }
+
+  add(value: any) {
+    return this.httpClient.post('http://localhost:3000/product', value);
   }
 }

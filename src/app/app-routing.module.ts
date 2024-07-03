@@ -9,6 +9,7 @@ import { CalendarComponent } from './pages/calendar/calendar.component';
 import { MeteoComponent } from './pages/meteo/meteo.component';
 import { MarvelCharactersComponent } from './pages/marvel-characters/marvel-characters.component';
 import { ProductComponent } from './pages/product/product.component';
+import { ProductAddComponent } from './pages/product-add/product-add.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'duree', pathMatch: 'full' },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'meteo', component: MeteoComponent },
   { path: 'marvel/characters', component: MarvelCharactersComponent },
   { path: 'product', component: ProductComponent },
+  { path: 'product/add', component: ProductAddComponent },
   { path: '**', component: Page404Component },
 ];
 

@@ -44,6 +44,8 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { loaderInterceptor } from './interceptors/loader.interceptor';
 import { ProductComponent } from './pages/product/product.component';
+import { ProductAddComponent } from './pages/product-add/product-add.component';
+import { InputNumberModule } from 'primeng/inputnumber';
 
 @NgModule({
   declarations: [
@@ -71,7 +73,8 @@ import { ProductComponent } from './pages/product/product.component';
     MarvelCharactersComponent,
     PaginatorComponent,
     LoaderComponent,
-    ProductComponent
+    ProductComponent,
+    ProductAddComponent
   ],
   imports: [
     BrowserModule,
@@ -91,6 +94,7 @@ import { ProductComponent } from './pages/product/product.component';
     ToastModule,
     DropdownModule,
     InputTextareaModule,
+    InputNumberModule,
     CalendarModule,
     FieldsetModule,
   ],
