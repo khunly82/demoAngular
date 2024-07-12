@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IMeteo } from '../models/imeteo';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +23,12 @@ export class MeteoService {
     } })
     return this.httpClient.get<IMeteo>(
       'https://api.openweathermap.org/data/2.5/weather', {params}
+    )
+  }
+
+  getPrevision(lat: number, lon: number): Observable<any> {
+    return this.httpClient.get<any>(
+      `https://www.prevision-meteo.ch/services/json/lat=${lat}lng=${lon}`
     )
   }
 }
