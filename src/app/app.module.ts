@@ -46,6 +46,8 @@ import { loaderInterceptor } from './interceptors/loader.interceptor';
 import { ProductComponent } from './pages/product/product.component';
 import { ProductAddComponent } from './pages/product-add/product-add.component';
 import { InputNumberModule } from 'primeng/inputnumber';
+import { BaseChartDirective, provideCharts, withDefaultRegisterables } from 'ng2-charts';
+import { DemoChartComponent } from './pages/demo-chart/demo-chart.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +76,8 @@ import { InputNumberModule } from 'primeng/inputnumber';
     PaginatorComponent,
     LoaderComponent,
     ProductComponent,
-    ProductAddComponent
+    ProductAddComponent,
+    DemoChartComponent,
   ],
   imports: [
     BrowserModule,
@@ -97,6 +100,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
     InputNumberModule,
     CalendarModule,
     FieldsetModule,
+    BaseChartDirective,
   ],
   providers: [
     ConfirmationService,
@@ -104,7 +108,8 @@ import { InputNumberModule } from 'primeng/inputnumber';
     provideHttpClient(withInterceptors([
       loaderInterceptor
     ])),
-    {provide: 'myValue', useValue: 42 }
+    {provide: 'myValue', useValue: 42 },
+    provideCharts(withDefaultRegisterables())
   ],
   bootstrap: [AppComponent]
 })

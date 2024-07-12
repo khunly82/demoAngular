@@ -1,11 +1,14 @@
-import { Component, Input } from '@angular/core';
+import { AfterViewInit, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-hello',
   templateUrl: './hello.component.html',
   styleUrl: './hello.component.scss'
 })
-export class HelloComponent {
+export class HelloComponent implements AfterViewInit {
+  ngAfterViewInit(): void {
+    console.log(this)
+  }
   @Input()
   nom: string = 'Khun';
 
