@@ -28,13 +28,18 @@ export class ProductAddComponent {
 
   submit() {
     if(this.form.valid) {
-      this.productService.add(this.form.value).subscribe(() => {
+      this.productService.add(this.form.value).subscribe({ next:  () => {
         // ce que l'on va faire après que les données ont été sauvegardées
         // message OK
         this.messageService.add({ severity: 'success', summary: 'OK !!!!!' })
         // rediriger vers l'index des produits
         this.router.navigate(['product']);
-      })
+      }, error: err => {
+        this.messageService.add({ 
+          severity: 'error', 
+          summary: err.error.statusCode === 401 ? 'Interdit !!' : 'Une erreur est survenue'  
+        })
+      }})
     }
   }
 }

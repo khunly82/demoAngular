@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,8 @@ import { Injectable } from '@angular/core';
 export class ProductService {
 
   constructor(
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private authService: AuthService
   ) { }
 
   getAll() {

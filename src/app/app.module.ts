@@ -48,6 +48,8 @@ import { ProductAddComponent } from './pages/product-add/product-add.component';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { BaseChartDirective, provideCharts, withDefaultRegisterables } from 'ng2-charts';
 import { DemoChartComponent } from './pages/demo-chart/demo-chart.component';
+import { LoginComponent } from './pages/login/login.component';
+import { tokenInterceptor } from './interceptors/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -78,6 +80,7 @@ import { DemoChartComponent } from './pages/demo-chart/demo-chart.component';
     ProductComponent,
     ProductAddComponent,
     DemoChartComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -106,7 +109,8 @@ import { DemoChartComponent } from './pages/demo-chart/demo-chart.component';
     ConfirmationService,
     MessageService,
     provideHttpClient(withInterceptors([
-      loaderInterceptor
+      loaderInterceptor,
+      tokenInterceptor,
     ])),
     {provide: 'myValue', useValue: 42 },
     provideCharts(withDefaultRegisterables())

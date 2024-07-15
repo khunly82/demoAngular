@@ -1,5 +1,7 @@
 import { AfterViewInit, Component, signal } from '@angular/core';
 import { ProductService } from '../../services/product.service';
+import { MessageService } from 'primeng/api';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-product',
@@ -10,9 +12,10 @@ export class ProductComponent implements AfterViewInit{
 
   product = signal<any[]>([]);
 
-  constructor(private productService: ProductService) {
+  constructor(public authService: AuthService, private productService: ProductService, private messageService: MessageService) {
     this.loadData();
   }
+
   ngAfterViewInit(): void {
     console.log(this)
   }
@@ -20,8 +23,18 @@ export class ProductComponent implements AfterViewInit{
 
 
   delete(id: number) {
-    this.productService.remove(id).subscribe(() => {
-      this.loadData()
+    this.productService.remove(id).subscribe({ 
+      // en cas de success
+      next: () => {
+        this.loadData()
+      } , 
+      // en cas d'erreur
+      error: err => {
+        this.messageService.add({ 
+          severity: 'error', 
+          summary: err.error.statusCode === 401 ? 'Interdit !!' : 'Une erreur est survenue'  
+        })
+      } 
     })
   }
 

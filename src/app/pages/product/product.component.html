@@ -1,6 +1,8 @@
-<div [ngStyle]="{ marginBottom: '10px' }">
-    <p-button label="Ajouter un nouveau produit" routerLink="/product/add"></p-button>
-</div>
+@if(authService.token()) {
+    <div [ngStyle]="{ marginBottom: '10px' }">
+        <p-button label="Ajouter un nouveau produit" routerLink="/product/add"></p-button>
+    </div>
+}
 
 <p-table [value]="product()">
     <ng-template pTemplate="header">

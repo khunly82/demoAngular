@@ -1,0 +1,17 @@
+<form [formGroup]="form" (ngSubmit)="login()">
+    <div>
+        <p-floatLabel>
+            <input pInputText type="email" formControlName="username">
+            <label>Email</label>
+        </p-floatLabel>
+    </div>
+    <div>
+        <p-floatLabel>
+            <input pInputText type="password" formControlName="password">
+            <label>Mot de passe</label>
+        </p-floatLabel>
+    </div>
+    <div>
+        <p-button type="submit">Se connecter</p-button>
+    </div>
+</form>

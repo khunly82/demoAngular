@@ -7,4 +7,11 @@
         <div></div>
     </div>
     Angular 2024
+    <div>
+        @if(!authService.token()) {
+            <a routerLink="/login">Se connecter</a>
+        } @else {
+            <a (click)="authService.logout()">Se déconnecter</a>
+        }
+    </div>
 </header>

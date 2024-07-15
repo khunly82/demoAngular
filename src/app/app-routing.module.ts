@@ -11,6 +11,8 @@ import { MarvelCharactersComponent } from './pages/marvel-characters/marvel-char
 import { ProductComponent } from './pages/product/product.component';
 import { ProductAddComponent } from './pages/product-add/product-add.component';
 import { DemoChartComponent } from './pages/demo-chart/demo-chart.component';
+import { LoginComponent } from './pages/login/login.component';
+import { authGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'duree', pathMatch: 'full' },
@@ -22,8 +24,9 @@ const routes: Routes = [
   { path: 'meteo', component: MeteoComponent },
   { path: 'marvel/characters', component: MarvelCharactersComponent },
   { path: 'product', component: ProductComponent },
-  { path: 'product/add', component: ProductAddComponent },
+  { path: 'product/add', component: ProductAddComponent, canActivate: [authGuard] },
   { path: 'demoChart', component: DemoChartComponent },
+  { path: 'login', component: LoginComponent },
   { path: '**', component: Page404Component },
 ];
 
